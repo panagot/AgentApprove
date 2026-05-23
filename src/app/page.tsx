@@ -2,6 +2,8 @@ import { Page } from '@/components/PageLayout';
 import Link from 'next/link';
 import { AuthButton } from '../components/AuthButton';
 
+const GITHUB_URL = 'https://github.com/panagot/AgentApprove';
+
 const PAGES = [
   { href: '/home', label: 'Inbox', desc: 'Pending agent approvals' },
   { href: '/agents', label: 'Agents', desc: 'Link AI agents & webhooks' },
@@ -28,6 +30,17 @@ export default function Landing() {
             When your AI agent wants to pay, sign, deploy, or spend on APIs — you
             approve it with a cryptographic World ID proof. One human. One
             decision. Fully auditable.
+          </p>
+          <p className="mt-3 text-xs text-zinc-500">
+            Open source (MIT) ·{' '}
+            <a
+              href={GITHUB_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-indigo-600 hover:underline"
+            >
+              View on GitHub
+            </a>
           </p>
         </div>
         <ul className="max-w-xs space-y-2 text-left text-xs text-zinc-600">
@@ -66,6 +79,15 @@ export default function Landing() {
             ))}
           </ul>
         </nav>
+
+        <footer className="max-w-sm text-xs text-zinc-500">
+          <p>
+            Built for the World ecosystem ·{' '}
+            <Link href="/integrate" className="text-indigo-600 hover:underline">
+              Integration docs
+            </Link>
+          </p>
+        </footer>
       </Page.Main>
     </Page>
   );

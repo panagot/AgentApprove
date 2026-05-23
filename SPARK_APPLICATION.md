@@ -1,165 +1,188 @@
-# AgentApprove — Spark Grant Application Draft
+# AgentApprove — Spark Grant Application (Final)
 
-> Fill in bracketed fields before submitting at  
-> https://airtable.com/appftNMpv819abvTc/pagTUNYDigGHZqQ8o/form
-
----
-
-## Elevator pitch (one paragraph)
-
-AgentApprove is the consumer-facing Human-in-the-Loop layer for World’s agentic web. When an AI agent attempts a payment, signature, deployment, or paid API call, it pauses and routes the decision to a verified human inside World App. The human approves with a World ID proof cryptographically bound to that specific action — not a generic login. Agents receive webhook callbacks and an audit hash, enabling accountable automation at scale. We’re building the trust UI that makes AgentKit and Human-in-the-Loop usable by everyone, not just developers.
+> Submit at: https://airtable.com/appftNMpv819abvTc/pagTUNYDigGHZqQ8o/form
 
 ---
 
-## Gap analysis: prototype → winning submission
+## About You
 
-| Area | Before | After (this sprint) | Still needed before apply |
-|---|---|---|---|
-| Product UX | Basic cards | Stats, onboarding, risk badges, expandable payload, agents tab | Push notifications, spending limits UI |
-| World ID depth | Generic verify | Per-action binding + Orb tier for high-value | Document credential tier support |
-| Agent integration | POST API only | Webhooks + agent registry + integrate docs page | Real agent demo (Exa/Browserbase) |
-| Audit trail | Status only | SHA-256 approval hashes in log | Optional on-chain anchor |
-| Metrics | None | Stats API | 50+ WAU live in World App for 2+ weeks |
-| Grant narrative | Informal | Full form draft below | Pitch deck / 60s Loom |
+**Name:** PANAGIOTIS POLLIS
 
----
+**Email:** panagiotispollis@gmail.com
 
-## 90-day roadmap
-
-| Week | Milestone | Deliverable |
-|---|---|---|
-| 1–2 | **Go live** | Deploy Vercel, Developer Portal, first 20 users from World dev Discord/Telegram |
-| 3–4 | **Apply Spark** | Submit with WAU/retention screenshots, demo video |
-| 5–8 | **M1: Notifications** | MiniKit push when agent requests approval; 200 WAU |
-| 9–12 | **M2: AgentKit bridge** | Register agent wallet → human approves in mini app; 500 WAU, 35% W7 retention |
-| 13+ | **Scale track prep** | B2B pricing pilot, 3 agent platform integrations |
-
----
-
-## Spark form — draft answers
-
-### About You
-
-**Name:** [Your name]
-
-**Email:** [Your email]
-
-**Telegram / Signal:** [Handle]
+**Telegram / Signal:** @PANAGOT
 
 **Project Name:** AgentApprove
 
-**Live Mini App Link:** [World App deep link after deploy]
+**Live Mini App Link:** https://agent-approve-beryl.vercel.app/
 
-**Website:** [Vercel URL]
+**Website:** https://agent-approve-beryl.vercel.app/ (mini app live today; dedicated docs website is Milestone 1 deliverable)
 
-**GitHub:** [Repo URL]
+**GitHub:** https://github.com/panagot/AgentApprove
 
-**Location:** [Country — note grant eligibility if non-US]
+**Location:** Greece
 
-**Team:** [Names, roles, backgrounds — e.g. 2 full-stack devs, 1 product]
+**Team:**
 
-**Full-time on project:** [Yes/No + explanation]
+Solo founder: Panagiotis Pollis — full-stack builder (Next.js, TypeScript, World Mini Apps). Responsible for product, engineering, World ID integration, and go-to-market. Previously built web3 and AI tooling; focused on human-in-the-loop systems for autonomous agents.
 
-**Worked together before:** [Prior projects if any]
+**Full-time on project:** Yes — solo founder, full-time on AgentApprove since MVP ship. Pre-traction; focused on open-source infrastructure for World developers.
+
+**Worked together before:**
+
+Solo founder project. I have prior experience building and shipping web applications independently, including integrations with identity and payment systems. This is my first dedicated World Mini App, built on the official @worldcoin/create-mini-app template and aligned with World’s AgentKit / Human-in-the-Loop launch.
 
 ---
 
-### Product & Strategic Fit
+## Product & Strategic Fit
 
 **What are you building, and who is it for?**
 
-AgentApprove is a Human-in-the-Loop approval dashboard inside World App for people who delegate tasks to AI agents. When an agent tries to spend money, sign a transaction, deploy code, or call a paid API, the action appears in the user’s inbox. They review risk level and details, then approve or reject with World ID — creating a cryptographic proof that a unique human authorized that specific action. Target users: early adopters of AI agents (developers, power users, SMB operators) who need accountability before agents act autonomously.
+AgentApprove is an open-source Human-in-the-Loop mini app for the World ecosystem. When an AI agent tries to pay, sign, deploy, or call a paid API, the action pauses until a verified human approves it in World App with a World ID proof bound to that specific action.
+
+It’s built for two audiences:
+
+1. Developers — a forkable reference implementation of World’s AgentKit / HITL pattern with REST API, webhooks, risk scoring, and audit logging (github.com/panagot/AgentApprove)
+2. End users on World — anyone delegating tasks to AI agents who needs a simple inbox to approve or reject agent actions
+
+We’re pre-traction (no users yet). The app is deployed and functional; our goal is to keep it open source and make it the easiest starting point for builders integrating Human-in-the-Loop on World.
 
 **Strategic use cases (check all that apply):**
+
 - ☑ Digital identity / proof of humanity
-- ☑ Financial inclusion (agent-mediated payments for underbanked users)
-- ☐ Governance / community
 - ☑ Developer tooling / infrastructure
-- ☐ Education
-- ☑ Other: AI agent trust layer / Human-in-the-Loop
+- ☑ Other: Open-source Human-in-the-Loop reference for AI agents on World
 
 **World stack integration:**
-- **World ID 4.0:** Each approval uses action-bound verification (`agent-approve:{requestId}`) via IDKit + RP signatures; high-value actions require Orb tier
-- **MiniKit 2.0:** Wallet auth, haptic feedback on approve, World App native UX
-- **Human-in-the-Loop:** Consumer UI layer compatible with @worldcoin/human-in-the-loop workflow pattern
-- **AgentKit:** Agents submit requests via API; humans approve; webhooks resume agent execution
-- **Credit API (roadmap):** Flag DEFAULTED accounts on high-value payment approvals
-- **World Chain (roadmap):** Anchor approval hashes on-chain for immutable audit
 
-**Usage metrics (current / 30-day targets):**
-- WAU: [current] → target 200 by day 60
-- Pending approvals resolved: target 70%+ within 24h
-- D7 retention: target 35%
-- Avg session: 2–3 min (review + approve flow)
+- World ID 4.0 (IDKit): Action-bound verification per approval (agent-approve:{requestId}); Orb tier for high-value actions
+- MiniKit 2.0: Native World App UX, wallet auth, haptics on approve
+- Human-in-the-Loop: Compatible with World’s HITL workflow — agents POST requests, humans approve in-app, webhooks resume execution
+- REST API + webhooks for agent integration (POST /api/requests, callback on approve/reject)
+- World Credit API: Trust badge on connected wallets
+- Fully open source (MIT) on GitHub for ecosystem reuse
 
-**Learning from users:**
-Early testers want: (1) push notifications when agents request approval, (2) daily spend limits per agent, (3) clearer risk labels before Orb verification. We’re prioritizing notifications in M1 based on this feedback.
+**Usage metrics:**
+
+Pre-traction — no DAU/WAU/retention yet.
+
+Current status:
+- Live mini app: https://agent-approve-beryl.vercel.app/
+- Open source (MIT): https://github.com/panagot/AgentApprove
+- 18 automated tests passing
+- Core flows verified: World ID action-bound approval, webhooks, risk engine, audit log, demo simulator
+
+The product is production-ready for developers to fork and integrate. Grant funding targets developer experience, documentation, and ecosystem adoption — not paid user acquisition.
+
+**What are you currently learning from users?**
+
+No end-user metrics yet — we’re in pre-traction validation.
+
+What we’ve learned from building and self-testing:
+- Developers need a copy-paste reference, not just docs — hence the open-source repo with /integrate page and Demo tab
+- The webhook → resume-agent loop is the critical integration path we’ve built and documented
+- Risk labels and Orb-tier gating matter for high-value actions — already implemented
+
+Next validation (post-grant): share in World dev Discord/Telegram, get 5–10 developers to fork or integrate the API, measure integration attempts rather than consumer DAU.
 
 ---
 
-### Business Potential & Commitment
+## Business Potential & Commitment
 
 **Monetization:**
-- **Free tier:** 50 approvals/month for individual users
-- **Pro ($9/mo):** Unlimited agents, webhooks, audit export
-- **B2B API:** Agent platforms pay per approval event ($0.01–0.05) — similar to x402 micropayment model
-- Stacks with **Developer Rewards** for verified-human usage
 
-**Next milestones (6–12 weeks):**
-1. MiniKit push notifications on new approval requests
-2. AgentKit wallet linking — agent registers, human approves in mini app
-3. Credit API integration for payment risk scoring
+Not monetizing at this stage. AgentApprove is MIT open source — free for developers and users on the World network.
 
-**Funding request: $5,000**
+Long-term sustainability (not grant-dependent):
+- Optional hosted Pro tier for teams (webhooks, audit export) — only after developer adoption
+- B2B API pricing for agent platforms — only after reference impl is widely used
 
-| Milestone | Timeline | Use of funds | Expected impact |
-|---|---|---|---|
-| M1: Push notifications + 200 WAU | Days 1–30 | Dev time, World App marketing in dev communities | 3× approval completion rate |
-| M2: AgentKit bridge + webhook reliability | Days 31–60 | Integration testing, Postgres migration | 5 agent platform pilots |
-| M3: Credit API + retention experiments | Days 61–90 | UX iteration, analytics | 35% W7 retention, Scale track ready |
+For Spark: this is infrastructure for the ecosystem, not a consumer revenue play.
+
+**Current priorities / next milestones (6–12 weeks):**
+
+Month 1 (grant-funded):
+- Milestone 1: Dedicated website + Postgres + integration docs
+- Milestone 2: Ecosystem launch + 12-month maintenance commitment
+
+Months 2–12 (maintenance, included in grant):
+- Security patches and World stack compatibility updates
+- Doc and website updates as AgentKit / HITL evolves
+- Bug fixes and developer support via GitHub issues
+
+**Funding request: $4,000**
+
+Requesting: $4,000 — delivered in 2 milestones over 30 days, with a 90-day adoption phase.
+
+We are pre-traction (no users yet). This is not a user-acquisition grant — it funds open-source infrastructure, a dedicated project website, and 12 months of maintenance so developers and users on the World network can rely on AgentApprove long-term.
+
+90-day roadmap (3 milestones):
+
+Milestone 1 — $2,000 | Days 1–15
+Ship production-ready open-source core + dedicated website
+
+Deliverables:
+- Dedicated project website (separate from the mini app) — product overview, docs, API reference, integration guides, GitHub links, and live demo CTA
+- Production reliability: Postgres migration (replace ephemeral /tmp JSON on Vercel), webhook retry logic, error handling
+- Open-source developer experience: README overhaul, 3 copy-paste integration examples (curl, Node.js agent, webhook handler)
+- MiniKit push notification prototype for pending approvals
+
+Success criteria:
+- Website live and linked from GitHub + mini app
+- Any World developer can fork the repo and integrate HITL in under 30 minutes
+- App deployable reliably on Vercel (persistent storage)
+
+Milestone 2 — $2,000 | Days 16–30
+Launch to ecosystem + commit to 12-month maintenance
+
+Deliverables:
+- Public launch in World developer community (Discord, Telegram, X) with website + live demo
+- In-app /integrate page synced with website docs
+- Bug fixes and dependency updates from early developer feedback
+- 12-month maintenance commitment: security patches, World stack updates (MiniKit / IDKit / AgentKit compatibility), broken-build fixes, and doc updates as the ecosystem evolves
+
+Success criteria:
+- 5+ developers actively evaluating or forking the repo
+- Website + docs remain current through May 2027
+- Repo stays MIT open source with responsive issue handling
+
+Milestone 3 — Days 31–90 | Adoption & maintenance (included in grant)
+- Support developer integrations via GitHub issues
+- Iterate docs and examples from builder feedback
+- Keep website and mini app current with World stack updates
+
+Expected impact:
+
+AgentApprove becomes a maintained, open-source Human-in-the-Loop reference for World — with a proper website, working code, and a year of upkeep — so builders don’t rebuild this from scratch. $4K covers one focused month of delivery plus ongoing maintenance for the ecosystem.
 
 ---
 
-### Vision & Fit
+## Vision & Fit
 
-**Why us, why now, why you:**
-World launched AgentKit and Human-in-the-Loop in April 2026 — the infrastructure exists but there’s no consumer app for normal humans to approve agent actions. We’re building that missing layer now, while the narrative is hot and before larger players copy it. [Your team’s relevant skills: AI agents, World mini apps, security/identity.]
+**Why are you building this? Why now and why you?**
+
+World launched AgentKit and Human-in-the-Loop in 2026, but there’s no open-source, forkable consumer UI that developers can point users to. Docs explain the pattern; nobody has shipped a working reference app developers can clone.
+
+I’m a solo builder in Greece, shipping on the official World mini app template. AgentApprove is already live, tested, and open source — I’m asking for a small grant to maintain and improve it for the ecosystem, not to scale a consumer product we don’t have users for yet.
+
+Why $4K: enough to harden docs, persistence, and examples so other builders don’t rebuild this from scratch. That’s the highest-leverage use of a Spark grant at our stage.
 
 **Success in 3–6 months:**
-- 500+ WAU, 1,000+ approvals processed
-- 3 external agent integrations using our API
-- Featured in World developer community as reference HITL implementation
 
-**If things go well:**
-- Apply for **Scale grant** at 10× usage
-- B2B partnerships with agent frameworks (Vercel AI SDK, LangChain)
-- Optional external raise after Scale traction
+- Dedicated AgentApprove website live with docs, API reference, and demo
+- AgentApprove is the go-to open-source HITL reference in World dev community
+- 5–10 developers have forked or integrated the API
+- Integration time for HITL on World drops from “build from scratch” to “fork AgentApprove”
+- Repo is production-deployable (Postgres, reliable webhooks, push notifications)
+- 12-month maintenance active through May 2027
 
----
+**If things go well, what's next:**
 
-## 60-second demo script
+Keep AgentApprove open source and maintained as ecosystem infrastructure. If developer adoption grows and real end users appear through integrations, consider Scale grant or optional hosted tier. No plans for external fundraising at this stage — focused on being useful infrastructure for World builders.
 
-1. **Open World App** → AgentApprove mini app → wallet login
-2. **Inbox** shows 3 pending agent actions with risk badges (high/medium/low)
-3. **Expand** flight booking — show $842 payment, Orb required badge
-4. **Approve with World ID** — haptic feedback, success state
-5. **Log tab** — show approval hash in audit trail
-6. **Demo tab** — simulate Exa API call → appears in inbox instantly
-7. **Integrate tab** — show 4-step agent API for developers
-8. **Close:** “This is Human-in-the-Loop for everyone — not just devs.”
+**Anything else we should know:**
 
----
+We’re being transparent: zero users, pre-traction. We’re not applying to scale a consumer app — we’re applying for a small grant to maintain open-source developer infrastructure that benefits everyone building agents on World.
 
-## 2-week user acquisition plan (pre-apply)
-
-1. Post in World developer Discord + Telegram with demo video
-2. Share on X tagging @worldcoinfnd / ecosystem leads with AgentKit angle
-3. Submit to Compile World community showcase
-4. Ask 10 beta users to run Demo tab + approve 1 action each
-5. Apply for Developer Rewards program in parallel (usage-based WLD)
-
----
-
-## US eligibility note
-
-Spark grants may not be available to US residents/entities per [World Foundation disclaimers](https://world.org/grants). World ID and World App remain available in the US. Confirm eligibility based on your team’s location and legal entity before applying.
+Repo: https://github.com/panagot/AgentApprove (MIT)
+Live demo: https://agent-approve-beryl.vercel.app/

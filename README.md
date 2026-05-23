@@ -6,6 +6,8 @@ When an AI agent wants to pay, sign a transaction, deploy code, or call a paid A
 
 Built for the [World Foundation Spark Grant](https://world.org/grants) and aligned with [World Human-in-the-Loop / AgentKit](https://docs.world.org/agents/human-in-the-loop/integrate).
 
+**Live demo:** [agent-approve-beryl.vercel.app](https://agent-approve-beryl.vercel.app/) · **License:** MIT · **Status:** Pre-traction — open-source reference implementation for World developers
+
 ---
 
 ## Why AgentApprove?
@@ -149,7 +151,7 @@ World ID verification only works inside World App — not in a desktop browser a
 ### Create an approval request
 
 ```bash
-curl -X POST https://your-app.vercel.app/api/requests \
+curl -X POST https://agent-approve-beryl.vercel.app/api/requests \
   -H "Content-Type: application/json" \
   -H "x-agent-api-key: YOUR_KEY" \
   -d '{
@@ -169,7 +171,7 @@ curl -X POST https://your-app.vercel.app/api/requests \
 ### List requests
 
 ```bash
-curl "https://your-app.vercel.app/api/requests?status=pending"
+curl "https://agent-approve-beryl.vercel.app/api/requests?status=pending"
 ```
 
 ### Webhook payload (on approve/reject)
@@ -233,7 +235,7 @@ World ID verification in World App is manual — not covered by automated tests.
 
 1. Import [panagot/AgentApprove](https://github.com/panagot/AgentApprove) on Vercel
 2. Add all environment variables from the table above
-3. Set `AUTH_URL` to your Vercel production URL (e.g. `https://agent-approve.vercel.app`)
+3. Set `AUTH_URL` to your Vercel production URL (e.g. `https://agent-approve-beryl.vercel.app`)
 4. Deploy
 5. Update the Mini App URL in [Developer Portal](https://developer.world.org/) to match
 
