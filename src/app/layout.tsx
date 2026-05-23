@@ -19,6 +19,10 @@ export const metadata: Metadata = {
   title: 'AgentApprove — Human-in-the-Loop for AI Agents',
   description:
     'Approve AI agent actions with cryptographic World ID verification. Built on World Human-in-the-Loop.',
+  icons: {
+    icon: [{ url: '/icon.svg', type: 'image/svg+xml' }],
+    apple: [{ url: '/apple-icon.svg', type: 'image/svg+xml' }],
+  },
 };
 
 export default async function RootLayout({

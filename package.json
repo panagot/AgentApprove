@@ -1,8 +1,8 @@
 {
-  "name": "@worldcoin/next-15-template",
+  "name": "agent-approve",
   "version": "0.1.0",
-  "homepage": "https://docs.worldcoin.org/mini-apps",
-  "description": "Create a Mini App",
+  "homepage": "https://github.com/panagot/AgentApprove",
+  "description": "Human-in-the-Loop approval dashboard for AI agents — World Mini App with World ID verification",
   "license": "MIT",
   "private": true,
   "type": "module",
